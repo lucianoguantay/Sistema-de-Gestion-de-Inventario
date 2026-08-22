@@ -4,13 +4,15 @@ public class Producto {
 	private String nombre;
 	private int precio;
 	private int stock;
+        private String info;
 	private String fechaDeVencimiento;
 	private String fechaDeElaboracion;
 	
-	public Producto (String nombre, int precio, int stock/*, String fechaDeVencimiento, String fechaDeElaboracion*/) {
+	public Producto (String nombre, int precio, int stock, String info/*, String fechaDeVencimiento, String fechaDeElaboracion*/) {
 		this.nombre=nombre;
 		this.precio=precio;
 		this.stock=stock;
+                this.info=info;
 		/*this.fechaDeVencimiento=fechaDeVencimiento;
 		this.fechaDeElaboracion=fechaDeElaboracion;*/
 	}
@@ -32,6 +34,12 @@ public class Producto {
 	public void setStock(int stock){
 		this.stock=stock;
 	}
+        public void setInfo(String info){
+            this.info = info;
+        }
+        public String getInfo(){
+            return info;
+        }
 	/*public String getFechaDeVencimiento() {
 		return fechaDeVencimiento;
 	}
@@ -45,7 +53,7 @@ public class Producto {
 		this.fechaDeElaboracion=fechaDeElaboracion;
 	}*/
 	public String toString() {
-		return String.format("El producto " + nombre + " fijado con un precio de $" + precio + " , un stock de " + stock + " y con fecha de elaboracion:" + fechaDeElaboracion);
+		return ("El producto " + nombre + " fijado con un precio de $" + precio + " , un stock de " + stock + ", con la siguiente informacion registrada: " + info);
 	}
 	public void restarStock() {
 		stock-=1;
