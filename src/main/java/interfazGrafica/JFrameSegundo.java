@@ -38,7 +38,7 @@ public class JFrameSegundo extends javax.swing.JFrame {
         labelTituloPrimerPanel = new javax.swing.JLabel();
         novedadesPrimeraPanel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jTextAreaNovedades = new javax.swing.JTextArea();
         imagenPrimerPanel = new javax.swing.JLabel();
         JPanelSegundo = new FondoPanel("/Imagenes/ciudad.jpg");
         jLabel1 = new javax.swing.JLabel();
@@ -75,7 +75,7 @@ public class JFrameSegundo extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel30 = new javax.swing.JLabel();
         jLabelnombnuevProd = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
+        jPanel3 = new FondoPanel("/Imagenes/ciudad.jpg");
         jLabel11 = new javax.swing.JLabel();
         jLabel121 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
@@ -136,26 +136,26 @@ public class JFrameSegundo extends javax.swing.JFrame {
 
         labelTituloPrimerPanel.setBackground(new java.awt.Color(73, 33, 63));
         labelTituloPrimerPanel.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
-        labelTituloPrimerPanel.setForeground(new java.awt.Color(204, 204, 205));
+        labelTituloPrimerPanel.setForeground(new java.awt.Color(255, 255, 255));
         labelTituloPrimerPanel.setText("BIENVENIDO A LA PLATAFORMA DE LA EMPRESA");
         labelTituloPrimerPanel.setOpaque(true);
 
         novedadesPrimeraPanel.setBackground(new java.awt.Color(67, 48, 48));
         novedadesPrimeraPanel.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
-        novedadesPrimeraPanel.setForeground(new java.awt.Color(204, 204, 205));
+        novedadesPrimeraPanel.setForeground(new java.awt.Color(255, 255, 255));
         novedadesPrimeraPanel.setText("            ULTIMAS NOVEDADES !!!");
         novedadesPrimeraPanel.setOpaque(true);
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setBackground(new java.awt.Color(181, 169, 169));
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
-        jTextArea1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Equipo de Operacion de control y calidad:\n\nLa plataforma entrara en periodo de mantenimiento entre los dias 20/03/2026 - 26/03/2026. Por favor mantener todos los recaudos necesarios para evitar inconvenientes. Gracias !!!\n\nEquipo Informatico.");
-        jTextArea1.setWrapStyleWord(true);
-        jScrollPane1.setViewportView(jTextArea1);
+        jTextAreaNovedades.setEditable(false);
+        jTextAreaNovedades.setBackground(new java.awt.Color(181, 169, 169));
+        jTextAreaNovedades.setColumns(20);
+        jTextAreaNovedades.setFont(new java.awt.Font("Tw Cen MT", 1, 24)); // NOI18N
+        jTextAreaNovedades.setForeground(new java.awt.Color(0, 0, 0));
+        jTextAreaNovedades.setLineWrap(true);
+        jTextAreaNovedades.setRows(5);
+        jTextAreaNovedades.setText("Equipo de Operacion de control y calidad:\n\nLa plataforma entrara en periodo de mantenimiento entre los dias 20/03/2026 - 26/03/2026. Por favor mantener todos los recaudos necesarios para evitar inconvenientes. Gracias !!!\n\nEquipo Informatico.");
+        jTextAreaNovedades.setWrapStyleWord(true);
+        jScrollPane1.setViewportView(jTextAreaNovedades);
 
         imagenPrimerPanel.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentResized(java.awt.event.ComponentEvent evt) {
@@ -190,7 +190,7 @@ public class JFrameSegundo extends javax.swing.JFrame {
                     .addGroup(jPanelPrimeroLayout.createSequentialGroup()
                         .addComponent(novedadesPrimeraPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 315, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
                         .addGap(77, 77, 77))
                     .addComponent(imagenPrimerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
@@ -550,21 +550,46 @@ public class JFrameSegundo extends javax.swing.JFrame {
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("CONTROL DE OBJETOS", jPanel2);
 
-        jLabel11.setText("OPCIONES A REALIZAR");
+        jLabel11.setBackground(new java.awt.Color(97, 22, 71));
+        jLabel11.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("OPCIONES A REALIZAR:");
+        jLabel11.setOpaque(true);
 
+        jLabel121.setBackground(new java.awt.Color(49, 14, 45));
+        jLabel121.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
+        jLabel121.setForeground(new java.awt.Color(255, 255, 255));
         jLabel121.setText("CENTRO DE CONTROL DE NOTIFICACIONES");
+        jLabel121.setOpaque(true);
 
+        jPanel4.setBackground(new java.awt.Color(97, 22, 71));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 124, 188)));
+
+        jButton2.setBackground(new java.awt.Color(189, 15, 102));
+        jButton2.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("ENVIAR CORREO");
+        jButton2.addActionListener(this::jButton2ActionPerformed);
 
+        jButton3.setBackground(new java.awt.Color(189, 15, 102));
+        jButton3.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("VER ULTIMOS CAMBIOS");
 
+        jButton4.setBackground(new java.awt.Color(189, 15, 102));
+        jButton4.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("AGREGAR NOVEDADES");
+        jButton4.addActionListener(this::jButton4ActionPerformed);
 
+        jButton5.setBackground(new java.awt.Color(189, 15, 102));
+        jButton5.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("ENVIAR MENSAJE DE AVISO");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -572,26 +597,27 @@ public class JFrameSegundo extends javax.swing.JFrame {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGap(32, 32, 32)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
+                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(24, Short.MAX_VALUE)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addGap(22, 22, 22))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -601,21 +627,21 @@ public class JFrameSegundo extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel121, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(623, Short.MAX_VALUE))
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel121, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(334, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
+                .addGap(38, 38, 38)
                 .addComponent(jLabel121, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("CONTROL DE MENSAJES", jPanel3);
@@ -849,7 +875,7 @@ public class JFrameSegundo extends javax.swing.JFrame {
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("ENCUESTA DE CONTROL", jPanel5);
@@ -961,6 +987,85 @@ public class JFrameSegundo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabelnombnuevProdActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try {
+            
+            String destinatario = "contactoempresa@gmail.com"; 
+            String asunto = "Informe sobre Consulta de Productos";
+
+            String asuntoCodificado = java.net.URLEncoder.encode(asunto, "UTF-8").replace("+", "%20");
+
+            /*
+            view=cm: Significa "Compose Message" (Redactar mensaje)
+            to=:  Le avisa a Gmail a quién se lo vas a mandar
+            su=: Significa "Subject" (Asunto)
+            */
+            
+            String enlaceGmail = "https://mail.google.com/mail/?view=cm&to=" + destinatario + "&su=" + asuntoCodificado;
+            // crea un nuevo objeto que representa una dirección web o enlace (URI) utilizando un texto almacenado en la variable enlaceGmail
+            
+            java.net.URI uri = new java.net.URI(enlaceGmail);
+
+            //Verificamos si se puede 
+            if (java.awt.Desktop.isDesktopSupported() && java.awt.Desktop.getDesktop().isSupported(java.awt.Desktop.Action.BROWSE)) {
+
+                java.awt.Desktop.getDesktop().browse(uri);
+
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "Tu computadora no permite abrir el navegador desde Java.", "Advertencia", javax.swing.JOptionPane.WARNING_MESSAGE);
+            }
+
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Ocurrió un error al intentar abrir Gmail.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        
+        String TextoNovedades = jTextAreaNovedades.getText();
+        /*String TextoNovedades = jTextAreaNovedades.getText();
+        String NuevoTextoNoveda = javax.swing.JOptionPane.showInputDialog(this, "Ingresar nueva Novedad", "TEXTO NOVEDAD", javax.swing.JOptionPane.QUESTION_MESSAGE);
+        if (NuevoTextoNoveda != null && !NuevoTextoNoveda.trim().isEmpty()) {
+            jTextAreaNovedades.append("\n\n" + NuevoTextoNoveda + "\n Atentamente Equipo de Control y Calidad");
+            javax.swing.JOptionPane.showConfirmDialog(this, "Se ha actualizado el perfil de novedades correctamente", "OPERACION EXITOSA", javax.swing.JOptionPane.OK_OPTION);
+        }*/
+        
+        //FORMA MAS ELABORADA
+        
+        // Fabricamos un JTextArea a medida 
+        javax.swing.JTextArea areaTexto = new javax.swing.JTextArea(10, 30);
+        areaTexto.setLineWrap(true); // Hace que el texto baje si choca con el borde derecho
+        areaTexto.setWrapStyleWord(true); // Evita que las palabras se corten por la mitad
+
+        // Lo metemos en un JScrollPane 
+        javax.swing.JScrollPane panelConScroll = new javax.swing.JScrollPane(areaTexto);
+
+        
+        int opcionElegida = javax.swing.JOptionPane.showConfirmDialog(this, 
+                panelConScroll, 
+                "Escribir la Nueva Novedad:", 
+                javax.swing.JOptionPane.OK_CANCEL_OPTION, 
+                javax.swing.JOptionPane.PLAIN_MESSAGE);
+
+        // Si el usuario apretó el botón "Aceptar" (OK_OPTION)
+        if (opcionElegida == javax.swing.JOptionPane.OK_OPTION) {
+
+            // Sacamos el texto con todos sus saltos de línea (Enters)
+            String NuevoTextoNoveda = areaTexto.getText();
+
+            if (!NuevoTextoNoveda.trim().isEmpty()) {
+
+                jTextAreaNovedades.append("\n\n ------------------------------------------------ \n" + NuevoTextoNoveda + "\n Atentamente Equipo de Control y Calidad");
+
+                javax.swing.JOptionPane.showMessageDialog(this, "Mensaje actualizado con éxito", "OPERACION EXITOSA", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "No se puede enviar mensajes vacios", "ADVERTENCIA", javax.swing.JOptionPane.WARNING_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBotonAumentarStock;
@@ -1027,8 +1132,8 @@ public class JFrameSegundo extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea4;
+    private javax.swing.JTextArea jTextAreaNovedades;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JToggleButton jToggleButton10;

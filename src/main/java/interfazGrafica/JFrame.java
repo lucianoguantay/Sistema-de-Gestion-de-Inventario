@@ -80,10 +80,14 @@ public class JFrame extends javax.swing.JFrame {
         password.setForeground(new java.awt.Color(0, 0, 0));
         password.addActionListener(this::passwordActionPerformed);
 
+        botonVer.setBackground(new java.awt.Color(52, 35, 35));
+        botonVer.setForeground(new java.awt.Color(255, 255, 255));
         botonVer.setText("Ver");
         botonVer.addActionListener(this::botonVerActionPerformed);
 
+        jButton1.setBackground(new java.awt.Color(52, 35, 35));
         jButton1.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Ingresar");
         jButton1.addActionListener(this::jButton1ActionPerformed);
 
