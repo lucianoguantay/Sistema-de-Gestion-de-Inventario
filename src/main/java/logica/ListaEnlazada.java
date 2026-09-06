@@ -17,7 +17,7 @@ public class ListaEnlazada {
     public int getTamaño() {
 	return tamaño;
     }
-    public void insertar_comienzo(Producto elemento) {
+    public void insertar_comienzo(Object elemento) {
 	Nodo nodo_auxiliar = new Nodo(elemento);
 	if (listaVacia()) {
             cabeza=nodo_auxiliar;
@@ -63,20 +63,7 @@ public class ListaEnlazada {
 		cabeza=null;
 		tamaño=0; 
 	}
-        public Producto busqueda(String nombreProducto){
-            if (!listaVacia()){
-                Nodo puntero = cabeza;
-                while(puntero!=null){
-                    if (puntero.getDato().getNombre().equals(nombreProducto)){
-                        return (puntero.getDato());
-                    }puntero = puntero.getSiguiente();
-                }
-                return (null);
-            }else{
-                System.out.println("Error lista vacia");
-                return null;
-            }
-        }
+        
         public void mostrar(){
             if(!listaVacia()){
                 Nodo referencia = cabeza;
@@ -89,7 +76,8 @@ public class ListaEnlazada {
                 System.out.println("Error lista vacia");
             }
         }
-    public String mostrarInfoCompleta(){
+        
+    /*public String mostrarInfoCompleta(){
         Nodo ref = cabeza;
         String text = "";
         while(ref!=null){
@@ -97,6 +85,21 @@ public class ListaEnlazada {
             ref = ref.getSiguiente();
         }
     return text;
-    }
-    
+    }*/
+    //Metodo Busqueda
+    /*
+    public Producto busqueda(String nombreProducto){
+            if (!listaVacia()){
+                Nodo puntero = cabeza;
+                while(puntero!=null){
+                    if (puntero.getDato().getNombre().equals(nombreProducto)){
+                        return (puntero.getDato());
+                    }puntero = puntero.getSiguiente();
+                }
+                return (null);
+            }else{
+                System.out.println("Error lista vacia");
+                return null;
+            }
+        }*/
 }

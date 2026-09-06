@@ -1,17 +1,17 @@
 package logica;
 
 public class Nodo {
-	private Producto elemento;
+	private Object elemento;
 	private Nodo siguiente;
 	
-	public Nodo (Producto elemento) {
+	public Nodo (Object elemento) {
 		this.elemento=elemento;
 		siguiente=null;		
 	}
-	public void setDato(Producto elemento) {
+	public void setDato(Object elemento) {
 		this.elemento=elemento;
 	}
-	public Producto getDato() {
+	public Object getDato() {
 		return elemento;
 	}
 	public void setSiguiente(Nodo siguiente) {

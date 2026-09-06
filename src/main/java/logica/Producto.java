@@ -1,18 +1,19 @@
 package logica;
-
+import java.util.Date;
 public class Producto {
 	private String nombre;
 	private int precio;
 	private int stock;
         private String info;
-	private String fechaDeVencimiento;
+	private Date fechaRegistro;
 	private String fechaDeElaboracion;
 	
-	public Producto (String nombre, int precio, int stock, String info/*, String fechaDeVencimiento, String fechaDeElaboracion*/) {
+	public Producto (String nombre, int precio, int stock, String info, Date fechaRegistro /*String fechaDeElaboracion*/) {
 		this.nombre=nombre;
 		this.precio=precio;
 		this.stock=stock;
                 this.info=info;
+                this.fechaRegistro = fechaRegistro;
 		/*this.fechaDeVencimiento=fechaDeVencimiento;
 		this.fechaDeElaboracion=fechaDeElaboracion;*/
 	}
@@ -40,6 +41,12 @@ public class Producto {
         public String getInfo(){
             return info;
         }
+        public Date getfechaRegistro(){
+            return fechaRegistro;
+        }
+        public void setfechaRegistro(Date fechaRegistro){
+            this.fechaRegistro = fechaRegistro;
+        }
 	/*public String getFechaDeVencimiento() {
 		return fechaDeVencimiento;
 	}
@@ -52,8 +59,9 @@ public class Producto {
 	public void setFechaDeElaboracion(String fechaDeElaboracion) {
 		this.fechaDeElaboracion=fechaDeElaboracion;
 	}*/
+        @Override
 	public String toString() {
-		return ("El producto " + nombre + " fijado con un precio de $" + precio + " , un stock de " + stock + ", con la siguiente informacion registrada: " + info);
+		return ("El producto " + nombre + " fijado con un precio de $" + precio + " , un stock de " + stock + " , con la siguiente informacion registrada: " + info);
 	}
 	public void restarStock() {
 		stock-=1;

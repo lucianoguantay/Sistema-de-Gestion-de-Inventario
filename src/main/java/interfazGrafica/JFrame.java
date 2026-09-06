@@ -6,10 +6,12 @@ import javax.swing.JOptionPane;
 import logica.*;
 public class JFrame extends javax.swing.JFrame {
     private ListaEnlazada lista;
+    private ListaEnlazada listaModifi;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(JFrame.class.getName());
 
-    public JFrame(ListaEnlazada lista) {
+    public JFrame(ListaEnlazada lista, ListaEnlazada listaModifi) {
         this.lista=lista;
+        this.listaModifi = listaModifi;
         initComponents();
      
         Icon imagenEdificio = new ImageIcon(new ImageIcon (getClass().getResource("/Imagenes/edificioInicio.jpg")).getImage()
@@ -228,7 +230,8 @@ public class JFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (!labelNombre.getText().equals("") && !labelNombre.getText().equals("Ingresar nombre de usuario") && !password.getText().equals("")){
-            JFrameSegundo pantallaAplicacion = new JFrameSegundo (lista);
+            Usuario UsuarioEntrante = new Usuario (labelNombre.getText(),password.getText(),"UsuarioComun");
+            JFrameSegundo pantallaAplicacion = new JFrameSegundo (lista,UsuarioEntrante,listaModifi);
             pantallaAplicacion.setExtendedState(MAXIMIZED_BOTH);
             pantallaAplicacion.setVisible(true);
             this.dispose();

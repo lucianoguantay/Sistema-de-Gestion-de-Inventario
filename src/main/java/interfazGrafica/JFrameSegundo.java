@@ -7,14 +7,22 @@ import java.awt.Image;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import logica.*;
+import java.util.Date;
+
 public class JFrameSegundo extends javax.swing.JFrame {
     private logica.ListaEnlazada lista;         //Le pongo un atributo que sea lista
     private boolean banderaProducto;
+    private Usuario user;
+    private logica.ListaEnlazada listaCambios;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(JFrameSegundo.class.getName());
-
-    public JFrameSegundo(ListaEnlazada lista) {
+    
+    
+    public JFrameSegundo(ListaEnlazada lista, Usuario user, ListaEnlazada listaCambios) {
         this.lista = lista;                          //Inicializo lista
-        banderaProducto=false;
+        this.banderaProducto=false;
+        this.user = user;
+        this.listaCambios = listaCambios;
+        
         initComponents();
         actualizarTextArea();                       //Agrego en el textArea los productos ya cargados
         Icon imagenBienvenida = new ImageIcon(new ImageIcon (getClass().getResource("/Imagenes/bienvenida.jpg")).getImage()
@@ -22,6 +30,7 @@ public class JFrameSegundo extends javax.swing.JFrame {
         //imagenInicio.getWidth(), imagenInicio.getHeight()
         imagenPrimerPanel.setIcon(imagenBienvenida);
         this.setLocationRelativeTo(null);       //HACE QUE LA VENTANA ESTE CENTRADA   
+        jScrollPane7.setVisible(false);
     }
     
     /**
@@ -75,14 +84,6 @@ public class JFrameSegundo extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel30 = new javax.swing.JLabel();
         jLabelnombnuevProd = new javax.swing.JTextField();
-        jPanel3 = new FondoPanel("/Imagenes/ciudad.jpg");
-        jLabel11 = new javax.swing.JLabel();
-        jLabel121 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -119,6 +120,16 @@ public class JFrameSegundo extends javax.swing.JFrame {
         jTextArea4 = new javax.swing.JTextArea();
         jLabel27 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
+        jPanel3 = new FondoPanel("/Imagenes/ciudad.jpg");
+        jLabel11 = new javax.swing.JLabel();
+        jLabel121 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        textAreaCambios = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -190,7 +201,7 @@ public class JFrameSegundo extends javax.swing.JFrame {
                     .addGroup(jPanelPrimeroLayout.createSequentialGroup()
                         .addComponent(novedadesPrimeraPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
                         .addGap(77, 77, 77))
                     .addComponent(imagenPrimerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
@@ -555,97 +566,6 @@ public class JFrameSegundo extends javax.swing.JFrame {
 
         jTabbedPane.addTab("CONTROL DE OBJETOS", jPanel2);
 
-        jLabel11.setBackground(new java.awt.Color(97, 22, 71));
-        jLabel11.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("OPCIONES A REALIZAR:");
-        jLabel11.setOpaque(true);
-
-        jLabel121.setBackground(new java.awt.Color(49, 14, 45));
-        jLabel121.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
-        jLabel121.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel121.setText("CENTRO DE CONTROL DE NOTIFICACIONES");
-        jLabel121.setOpaque(true);
-
-        jPanel4.setBackground(new java.awt.Color(97, 22, 71));
-        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 124, 188)));
-
-        jButton2.setBackground(new java.awt.Color(189, 15, 102));
-        jButton2.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("ENVIAR CORREO");
-        jButton2.addActionListener(this::jButton2ActionPerformed);
-
-        jButton3.setBackground(new java.awt.Color(189, 15, 102));
-        jButton3.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("VER ULTIMOS CAMBIOS");
-
-        jButton4.setBackground(new java.awt.Color(189, 15, 102));
-        jButton4.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("AGREGAR NOVEDADES");
-        jButton4.addActionListener(this::jButton4ActionPerformed);
-
-        jButton5.setBackground(new java.awt.Color(189, 15, 102));
-        jButton5.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("ENVIAR MENSAJE DE AVISO");
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(36, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
-        );
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel121, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(334, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jLabel121, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(67, Short.MAX_VALUE))
-        );
-
-        jTabbedPane.addTab("CONTROL DE MENSAJES", jPanel3);
-
         jLabel13.setText("ESTA ENCUESTA DEBE RESPONDERSE SIEMPRE AL FINALIZAR EL DIA");
 
         jLabel14.setText("NOMBRE DEL USUARIO:");
@@ -875,10 +795,115 @@ public class JFrameSegundo extends javax.swing.JFrame {
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("ENCUESTA DE CONTROL", jPanel5);
+
+        jLabel11.setBackground(new java.awt.Color(97, 22, 71));
+        jLabel11.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("OPCIONES A REALIZAR:");
+        jLabel11.setOpaque(true);
+
+        jLabel121.setBackground(new java.awt.Color(49, 14, 45));
+        jLabel121.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
+        jLabel121.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel121.setText("CENTRO DE CONTROL DE NOTIFICACIONES");
+        jLabel121.setOpaque(true);
+
+        jPanel4.setBackground(new java.awt.Color(97, 22, 71));
+        jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 124, 188)));
+
+        jButton2.setBackground(new java.awt.Color(189, 15, 102));
+        jButton2.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("ENVIAR CORREO");
+        jButton2.addActionListener(this::jButton2ActionPerformed);
+
+        jButton3.setBackground(new java.awt.Color(189, 15, 102));
+        jButton3.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setText("BORRAR NOVEDADES");
+        jButton3.addActionListener(this::jButton3ActionPerformed);
+
+        jButton4.setBackground(new java.awt.Color(189, 15, 102));
+        jButton4.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setText("AGREGAR NOVEDADES");
+        jButton4.addActionListener(this::jButton4ActionPerformed);
+
+        jButton5.setBackground(new java.awt.Color(189, 15, 102));
+        jButton5.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jButton5.setText("MOSTRAR ULTIMOS CAMBIOS");
+        jButton5.addActionListener(this::jButton5ActionPerformed);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 394, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap(24, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
+        );
+
+        textAreaCambios.setEditable(false);
+        textAreaCambios.setBackground(new java.awt.Color(97, 22, 71));
+        textAreaCambios.setColumns(20);
+        textAreaCambios.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        textAreaCambios.setForeground(new java.awt.Color(255, 255, 255));
+        textAreaCambios.setRows(5);
+        jScrollPane7.setViewportView(textAreaCambios);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel121, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)))
+                .addGap(41, 41, 41))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jLabel121, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(67, 67, 67))
+        );
+
+        jTabbedPane.addTab("CONTROL DE MENSAJES", jPanel3);
 
         getContentPane().add(jTabbedPane, java.awt.BorderLayout.CENTER);
 
@@ -897,7 +922,7 @@ public class JFrameSegundo extends javax.swing.JFrame {
 
         String ProductoBuscar = busquedaSegundoPanel.getText();
         //Realizo la busqueda del segundo producto
-            Producto productoBuscado = lista.busqueda(ProductoBuscar);
+            Producto productoBuscado = busqueda(lista, ProductoBuscar);
             if (productoBuscado!=null){
                 labelNombreObjeto.setText(productoBuscado.getNombre());
                 textAreaInformacion.setText(productoBuscado.toString());
@@ -929,13 +954,13 @@ public class JFrameSegundo extends javax.swing.JFrame {
 
     private void JBotonAumentarStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBotonAumentarStockActionPerformed
         //Debo realizar la busqueda nuevamente
-        Producto productoBuscado = lista.busqueda(busquedaSegundoPanel.getText());
+        Producto productoBuscado = busqueda(lista, busquedaSegundoPanel.getText());
         productoBuscado.setStock(productoBuscado.getStock()+1);
         jLabelStock.setText(Integer.toString(productoBuscado.getStock()));
     }//GEN-LAST:event_JBotonAumentarStockActionPerformed
 
     private void jBotonDisminuirBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBotonDisminuirBotonActionPerformed
-        Producto productoBuscado = lista.busqueda(busquedaSegundoPanel.getText());
+        Producto productoBuscado = busqueda(lista, busquedaSegundoPanel.getText());
         productoBuscado.setStock(productoBuscado.getStock()-1);
         jLabelStock.setText(Integer.toString(productoBuscado.getStock()));
     }//GEN-LAST:event_jBotonDisminuirBotonActionPerformed
@@ -946,7 +971,7 @@ public class JFrameSegundo extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String nombreNuevProd = jLabelnombnuevProd.getText();
-        
+        Date fechaActual = new Date();
         
         //Verificacion de datos
         try{
@@ -959,10 +984,14 @@ public class JFrameSegundo extends javax.swing.JFrame {
             }
             //REALIZAMOS LA BUSQUEDA DEL PRODUCTO PARA VER SI ESTA EN LA LISTA
             
-            Producto productoBusqueda = lista.busqueda(nombreNuevProd);
+            Producto productoBusqueda = busqueda(lista, nombreNuevProd);
             if (productoBusqueda==null){
-                Producto nuevoProducto = new Producto(nombreNuevProd,PrecioNuevProd,StockNuevProd,jLabelInfoNuevProd.getText());
+                Producto nuevoProducto = new Producto(nombreNuevProd,PrecioNuevProd,StockNuevProd,jLabelInfoNuevProd.getText(),fechaActual);
                 lista.insertar_comienzo(nuevoProducto);
+                
+                CambioRealizado nuevoCambio = new CambioRealizado(fechaActual,user,"Se ha agregado un nuevo producto" + nuevoProducto.toString());
+                listaCambios.insertar_comienzo(nuevoCambio);
+                
                 JOptionPane.showMessageDialog(this, "PRODUCTO AGREGADO CON EXITO", "Informacion",JOptionPane.INFORMATION_MESSAGE);
                 actualizarTextArea();
                 jLabelnombnuevProd.setText("");
@@ -987,10 +1016,81 @@ public class JFrameSegundo extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabelnombnuevProdActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        if (!listaCambios.listaVacia()){
+            jScrollPane7.setVisible(true);
+            // Estas dos líneas obligan a la pantalla a mostrar el cuadro AL INSTANTE
+            textAreaCambios.setText(mostrarText(listaCambios));
+            jPanel3.revalidate();
+            jPanel3.repaint();
+        }else{
+            javax.swing.JOptionPane.showMessageDialog(this, "No se han realizado cambios recientemente", "ERROR", javax.swing.JOptionPane.ERROR_MESSAGE);           }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+
+        Date fechaActual = new Date();
+        /*String TextoNovedades = jTextAreaNovedades.getText();
+        String NuevoTextoNoveda = javax.swing.JOptionPane.showInputDialog(this, "Ingresar nueva Novedad", "TEXTO NOVEDAD", javax.swing.JOptionPane.QUESTION_MESSAGE);
+        if (NuevoTextoNoveda != null && !NuevoTextoNoveda.trim().isEmpty()) {
+            jTextAreaNovedades.append("\n\n" + NuevoTextoNoveda + "\n Atentamente Equipo de Control y Calidad");
+            javax.swing.JOptionPane.showConfirmDialog(this, "Se ha actualizado el perfil de novedades correctamente", "OPERACION EXITOSA", javax.swing.JOptionPane.OK_OPTION);
+        }*/
+
+        //FORMA MAS ELABORADA
+
+        // Fabricamos un JTextArea a medida
+        javax.swing.JTextArea areaTexto = new javax.swing.JTextArea(10, 30);
+        areaTexto.setLineWrap(true); // Hace que el texto baje si choca con el borde derecho
+        areaTexto.setWrapStyleWord(true); // Evita que las palabras se corten por la mitad
+
+        // Lo metemos en un JScrollPane
+        javax.swing.JScrollPane panelConScroll = new javax.swing.JScrollPane(areaTexto);
+
+        int opcionElegida = javax.swing.JOptionPane.showConfirmDialog(this,
+            panelConScroll,
+            "Escribir la Nueva Novedad:",
+            javax.swing.JOptionPane.OK_CANCEL_OPTION,       // Le ordena a Java que dibuje dos botones en la parte de abajo de la ventana: uno que diga Aceptar y otro que diga Cancelar
+            javax.swing.JOptionPane.PLAIN_MESSAGE);         // Le dice a java que no ponga ningun icono
+
+        // Si el usuario apretó el botón "Aceptar" (OK_OPTION)
+        if (opcionElegida == javax.swing.JOptionPane.OK_OPTION) {
+
+            // Sacamos el texto con todos sus saltos de línea (Enters)
+            String NuevoTextoNoveda = areaTexto.getText();
+
+            if (!NuevoTextoNoveda.trim().isEmpty()) {
+
+                jTextAreaNovedades.append("\n\n ------------------------------------------------------------------------------------- \n" + NuevoTextoNoveda + "\n Atentamente:" + user.getNombre() + " parte del Control y Calidad");
+
+                javax.swing.JOptionPane.showMessageDialog(this, "Mensaje actualizado con éxito", "OPERACION EXITOSA", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                CambioRealizado nuevCambio = new CambioRealizado (fechaActual,user,"Se ha actualizado la tabla de novedades, mensaje:" + NuevoTextoNoveda);
+                listaCambios.insertar_comienzo(nuevCambio);
+
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "No se puede enviar mensajes vacios", "ADVERTENCIA", javax.swing.JOptionPane.WARNING_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        int opcion = javax.swing.JOptionPane.showConfirmDialog(this, "Seguro que desea borrar todas las novedades?", "ADVERTENCIA", javax.swing.JOptionPane.OK_CANCEL_OPTION);
+        Date fechaActual = new Date();
+        if (opcion == javax.swing.JOptionPane.OK_OPTION) {
+            jTextAreaNovedades.setText("");
+            javax.swing.JOptionPane.showConfirmDialog(this, "Novedades Borradas con exito", "AVISO", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            CambioRealizado nvCambio = new CambioRealizado (fechaActual,user,"Se ha borrado las novedades");
+            lista.insertar_comienzo(nvCambio);
+        }else{
+            javax.swing.JOptionPane.showConfirmDialog(this, "Se ha rechazado el borrado", "AVISO", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try {
-            
-            String destinatario = "contactoempresa@gmail.com"; 
+
+            String destinatario = "contactoempresa@gmail.com";
             String asunto = "Informe sobre Consulta de Productos";
 
             String asuntoCodificado = java.net.URLEncoder.encode(asunto, "UTF-8").replace("+", "%20");
@@ -1000,13 +1100,13 @@ public class JFrameSegundo extends javax.swing.JFrame {
             to=:  Le avisa a Gmail a quién se lo vas a mandar
             su=: Significa "Subject" (Asunto)
             */
-            
+
             String enlaceGmail = "https://mail.google.com/mail/?view=cm&to=" + destinatario + "&su=" + asuntoCodificado;
             // crea un nuevo objeto que representa una dirección web o enlace (URI) utilizando un texto almacenado en la variable enlaceGmail
-            
+
             java.net.URI uri = new java.net.URI(enlaceGmail);
 
-            //Verificamos si se puede 
+            //Verificamos si se puede
             if (java.awt.Desktop.isDesktopSupported() && java.awt.Desktop.getDesktop().isSupported(java.awt.Desktop.Action.BROWSE)) {
 
                 java.awt.Desktop.getDesktop().browse(uri);
@@ -1018,53 +1118,7 @@ public class JFrameSegundo extends javax.swing.JFrame {
         } catch (Exception e) {
             javax.swing.JOptionPane.showMessageDialog(this, "Ocurrió un error al intentar abrir Gmail.", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
-
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        
-        String TextoNovedades = jTextAreaNovedades.getText();
-        /*String TextoNovedades = jTextAreaNovedades.getText();
-        String NuevoTextoNoveda = javax.swing.JOptionPane.showInputDialog(this, "Ingresar nueva Novedad", "TEXTO NOVEDAD", javax.swing.JOptionPane.QUESTION_MESSAGE);
-        if (NuevoTextoNoveda != null && !NuevoTextoNoveda.trim().isEmpty()) {
-            jTextAreaNovedades.append("\n\n" + NuevoTextoNoveda + "\n Atentamente Equipo de Control y Calidad");
-            javax.swing.JOptionPane.showConfirmDialog(this, "Se ha actualizado el perfil de novedades correctamente", "OPERACION EXITOSA", javax.swing.JOptionPane.OK_OPTION);
-        }*/
-        
-        //FORMA MAS ELABORADA
-        
-        // Fabricamos un JTextArea a medida 
-        javax.swing.JTextArea areaTexto = new javax.swing.JTextArea(10, 30);
-        areaTexto.setLineWrap(true); // Hace que el texto baje si choca con el borde derecho
-        areaTexto.setWrapStyleWord(true); // Evita que las palabras se corten por la mitad
-
-        // Lo metemos en un JScrollPane 
-        javax.swing.JScrollPane panelConScroll = new javax.swing.JScrollPane(areaTexto);
-
-        
-        int opcionElegida = javax.swing.JOptionPane.showConfirmDialog(this, 
-                panelConScroll, 
-                "Escribir la Nueva Novedad:", 
-                javax.swing.JOptionPane.OK_CANCEL_OPTION, 
-                javax.swing.JOptionPane.PLAIN_MESSAGE);
-
-        // Si el usuario apretó el botón "Aceptar" (OK_OPTION)
-        if (opcionElegida == javax.swing.JOptionPane.OK_OPTION) {
-
-            // Sacamos el texto con todos sus saltos de línea (Enters)
-            String NuevoTextoNoveda = areaTexto.getText();
-
-            if (!NuevoTextoNoveda.trim().isEmpty()) {
-
-                jTextAreaNovedades.append("\n\n ------------------------------------------------ \n" + NuevoTextoNoveda + "\n Atentamente Equipo de Control y Calidad");
-
-                javax.swing.JOptionPane.showMessageDialog(this, "Mensaje actualizado con éxito", "OPERACION EXITOSA", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-
-            } else {
-                javax.swing.JOptionPane.showMessageDialog(this, "No se puede enviar mensajes vacios", "ADVERTENCIA", javax.swing.JOptionPane.WARNING_MESSAGE);
-            }
-        }
-    }//GEN-LAST:event_jButton4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1130,6 +1184,7 @@ public class JFrameSegundo extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane;
     private javax.swing.JTextArea jTextArea4;
@@ -1152,6 +1207,7 @@ public class JFrameSegundo extends javax.swing.JFrame {
     private javax.swing.JLabel labelTituloPrimerPanel;
     private javax.swing.JLabel novedadesPrimeraPanel;
     private javax.swing.JPanel panelOculto;
+    private javax.swing.JTextArea textAreaCambios;
     private javax.swing.JTextArea textAreaInformacion;
     private javax.swing.JTextArea textAreaLista;
     // End of variables declaration//GEN-END:variables
@@ -1175,11 +1231,46 @@ public class JFrameSegundo extends javax.swing.JFrame {
     }
     
     private void actualizarTextArea (){
-        String textCompleto = lista.mostrarInfoCompleta();
+        String textCompleto = mostrarInfoCompleta(lista);
         textAreaLista.setText(textCompleto);
     }
-   
-    
+   //Metodo de la Lista Enlazada
+    public Producto busqueda(ListaEnlazada Lista, String nombreProducto){
+            if (!Lista.listaVacia()){
+                Nodo puntero = Lista.getCabeza();
+                while(puntero!=null){
+                    Producto ProductoLista = (Producto) puntero.getDato();
+                    if (ProductoLista.getNombre().equals(nombreProducto)){
+                        return ((Producto) puntero.getDato());
+                    }puntero = puntero.getSiguiente();
+                }
+                return (null);
+            }else{
+                System.out.println("Error lista vacia");
+                return null;
+            }
+        }
+    public String mostrarInfoCompleta(ListaEnlazada lista){
+        Nodo ref = lista.getCabeza();
+        String text = "";
+        
+        while(ref!=null){
+            Producto elementoLista = (Producto) ref.getDato();
+            text += elementoLista.getNombre() + "\n";
+            ref = ref.getSiguiente();
+        }
+    return text;
+    }
+    public String mostrarText(ListaEnlazada lista){
+                Nodo referencia = lista.getCabeza();
+                String texto = "";
+                while (referencia!=null){
+                    CambioRealizado ultimoCambio = (CambioRealizado) referencia.getDato();
+                    texto += "\n" + ultimoCambio.toString() + "\n";
+                    referencia=referencia.getSiguiente();
+                }
+                return texto;
+        }
 }
 
     
