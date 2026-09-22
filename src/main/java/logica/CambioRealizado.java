@@ -40,7 +40,7 @@ public class CambioRealizado {
    @Override
     public String toString() { 
         return ("Fecha y hora de la Modificacion: " + fechaCambio + 
-                ". \n Realizado por el usuario: " + responsable.getNombre() + 
+                ".\n Realizado por el usuario: " + responsable.getNombre() + 
                 ".\n Informacion del Cambio: " + informacionCambio);
     }
 
