@@ -2,20 +2,25 @@
 package logica;
 import interfazGrafica.JFrame;
 import java.util.Date;
+import persistencia.CConexion;
 
 public class MainPrincipal {
     public static void main(String[] args) {
-        //INSTANCIAMOS ALGUNOS PRODUCTOS
-        
+        //Conectamos la base de datos
+        /*
+        CConexion objetoconexion = new CConexion();
+        objetoconexion.establecerConexion();
+        */
         //Obtengo la fecha actual:
         Date fechaActual = new Date();
-        
-        Producto lapiceraAzul = new Producto("lapicera azul BIC",2500,400,"",fechaActual);
-        Producto plasticola = new Producto("Plasticola Boligoma",3500,100,"Plasticola Escolar",fechaActual);
-        Producto cartulinaAzul = new Producto("Cartulina Color Azul",4000,100,"",fechaActual);
-        Producto corrector = new Producto("Corrector Faber castle",3000,250,"",fechaActual);
-        Producto cajaBorradores = new Producto("Caja de 24 borradores",5000,100,"Ofrece un pack de 6 borradores",fechaActual);
-        Producto resaltadorAzul = new Producto("Resaltador color Azul",2500,300,"",fechaActual);
+        //INSTANCIAMOS ALGUNOS PRODUCTOS
+
+        Producto lapiceraAzul = new Producto("lapicera azul BIC",2500.0,400,"",fechaActual);
+        Producto plasticola = new Producto("Plasticola Boligoma",3500.0,100,"Plasticola Escolar",fechaActual);
+        Producto cartulinaAzul = new Producto("Cartulina Color Azul",4000.0,100,"",fechaActual);
+        Producto corrector = new Producto("Corrector Faber castle",3000.0,250,"",fechaActual);
+        Producto cajaBorradores = new Producto("Caja de 24 borradores",5000.0,100,"Ofrece un pack de 6 borradores",fechaActual);
+        Producto resaltadorAzul = new Producto("Resaltador color Azul",2500.0,300,"",fechaActual);
         ListaEnlazada listaProductos = new ListaEnlazada();
         listaProductos.insertar_comienzo(lapiceraAzul);
         listaProductos.insertar_comienzo(plasticola);

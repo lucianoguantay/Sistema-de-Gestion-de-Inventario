@@ -8,6 +8,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import logica.*;
 import java.util.Date;
+import static javax.swing.JOptionPane.showMessageDialog;
+import persistencia.CProducto;
 
 public class JFrameSegundo extends javax.swing.JFrame {
     private logica.ListaEnlazada lista;         //Le pongo un atributo que sea lista
@@ -1175,7 +1177,7 @@ public class JFrameSegundo extends javax.swing.JFrame {
         
         //Verificacion de datos
         try{
-            int PrecioNuevProd = Integer.parseInt(jLabelPrecioNuevProd.getText());
+            double PrecioNuevProd = Integer.parseInt(jLabelPrecioNuevProd.getText());
             int StockNuevProd = Integer.parseInt(jLabelStockNuevProd.getText());
             
             if(PrecioNuevProd<=0 || StockNuevProd<=0){
@@ -1191,6 +1193,12 @@ public class JFrameSegundo extends javax.swing.JFrame {
                 
                 CambioRealizado nuevoCambio = new CambioRealizado(fechaActual,user,"Se ha agregado un nuevo producto. " + nuevoProducto.toString());
                 listaCambios.insertar_comienzo(nuevoCambio);
+                
+                //NUEVO CODIGO SQL
+                
+                CProducto objetoProd = new CProducto();
+                objetoProd.insertarProducto(nombreNuevProd, PrecioNuevProd, StockNuevProd, jLabelInfoNuevProd.getText(), fechaActual);
+                
                 
                 JOptionPane.showMessageDialog(this, "PRODUCTO AGREGADO CON EXITO", "Informacion",JOptionPane.INFORMATION_MESSAGE);
                 actualizarTextArea();

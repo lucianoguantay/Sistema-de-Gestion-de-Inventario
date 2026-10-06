@@ -4,6 +4,7 @@ import javax.swing.ImageIcon;
 import javax.swing.Icon;
 import javax.swing.JOptionPane;
 import logica.*;
+import persistencia.UsuarioDAO;
 public class JFrame extends javax.swing.JFrame {
     private ListaEnlazada lista;
     private ListaEnlazada listaModifi;
@@ -231,10 +232,21 @@ public class JFrame extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (!labelNombre.getText().equals("") && !labelNombre.getText().equals("Ingresar nombre de usuario") && !password.getText().equals("")){
             Usuario UsuarioEntrante = new Usuario (labelNombre.getText(),password.getText(),"UsuarioComun");
-            JFrameSegundo pantallaAplicacion = new JFrameSegundo (lista,UsuarioEntrante,listaModifi);
-            pantallaAplicacion.setExtendedState(MAXIMIZED_BOTH);
-            pantallaAplicacion.setVisible(true);
-            this.dispose();
+            // Instanciamos una clase UsuarioDAO para validar el login
+            UsuarioDAO objetoUsuario = new UsuarioDAO();
+            boolean respuesta = objetoUsuario.validarLogin(labelNombre.getText(), password.getText());
+            // Logica de respuesta
+            
+            if (respuesta){
+                JOptionPane.showMessageDialog(null, "Bienvenido: "+labelNombre.getText(), "BIENVENIDO",HEIGHT);
+                JFrameSegundo pantallaAplicacion = new JFrameSegundo (lista,UsuarioEntrante,listaModifi);
+                pantallaAplicacion.setExtendedState(MAXIMIZED_BOTH);
+                pantallaAplicacion.setVisible(true);
+                this.dispose();
+            }else{
+                JOptionPane.showMessageDialog(this, "USUARIO INVALIDO", "Error al iniciar sesion", HEIGHT);
+            }
+
         }else{
             JOptionPane.showMessageDialog(this, "USUARIO INVALIDO", "Error al iniciar sesion", HEIGHT);
         }

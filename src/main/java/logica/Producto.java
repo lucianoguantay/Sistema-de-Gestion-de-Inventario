@@ -1,14 +1,15 @@
 package logica;
 import java.util.Date;
 public class Producto {
+        private int ProductoID;
 	private String nombre;
-	private int precio;
+	private double precio;
 	private int stock;
         private String info;
 	private Date fechaRegistro;
 	private String fechaDeElaboracion;
 	
-	public Producto (String nombre, int precio, int stock, String info, Date fechaRegistro /*String fechaDeElaboracion*/) {
+	public Producto (String nombre, double precio, int stock, String info, Date fechaRegistro /*String fechaDeElaboracion*/) {
 		this.nombre=nombre;
 		this.precio=precio;
 		this.stock=stock;
@@ -23,10 +24,10 @@ public class Producto {
 	public void setNombre(String nombre) {
 		this.nombre=nombre;
 	}
-	public int getPrecio() {
+	public double getPrecio() {
 		return precio;
 	}
-	public void setPrecio(int precio) {
+	public void setPrecio(double precio) {
 		this.precio=precio;
 	}
 	public int getStock() {
