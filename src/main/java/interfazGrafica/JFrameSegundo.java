@@ -8,8 +8,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import logica.*;
 import java.util.Date;
-import static javax.swing.JOptionPane.showMessageDialog;
-import persistencia.CProducto;
+import persistencia.ProductoDAO;
 
 public class JFrameSegundo extends javax.swing.JFrame {
     private logica.ListaEnlazada lista;         //Le pongo un atributo que sea lista
@@ -1184,6 +1183,9 @@ public class JFrameSegundo extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "El producto no puede tener valores asignados en 0 o negativos", "ERROR", JOptionPane.ERROR_MESSAGE);
                 return;         //Asi sale del try
             }
+            
+
+            /*
             //REALIZAMOS LA BUSQUEDA DEL PRODUCTO PARA VER SI ESTA EN LA LISTA
             
             Producto productoBusqueda = busqueda(lista, nombreNuevProd);
@@ -1196,7 +1198,7 @@ public class JFrameSegundo extends javax.swing.JFrame {
                 
                 //NUEVO CODIGO SQL
                 
-                CProducto objetoProd = new CProducto();
+                ProductoDAO objetoProd = new ProductoDAO();
                 objetoProd.insertarProducto(nombreNuevProd, PrecioNuevProd, StockNuevProd, jLabelInfoNuevProd.getText(), fechaActual);
                 
                 
@@ -1211,11 +1213,38 @@ public class JFrameSegundo extends javax.swing.JFrame {
             }else{
                 JOptionPane.showMessageDialog(this, "EL PRODUCTO YA ESTA REGISTRADO", "Error",JOptionPane.ERROR_MESSAGE);
             }
+            */
+            
+            // CON SQL SERVER
+        ProductoDAO objProd = new ProductoDAO();
+        boolean exist = objProd.verificarExistProducto(nombreNuevProd);
+        
+        //Preguntamos si el producto NO existe (false)
+        if (!exist) { 
+            
+            // Si NO existe, lo insertamos
+            objProd.insertarProducto(nombreNuevProd, PrecioNuevProd, StockNuevProd, jLabelInfoNuevProd.getText(), fechaActual);
+            
+            JOptionPane.showMessageDialog(this, "PRODUCTO AGREGADO CON ÉXITO", "Información", JOptionPane.INFORMATION_MESSAGE);
+            
+            // Limpiamos los campos 
+            jLabelnombnuevProd.setText("");
+            jLabelPrecioNuevProd.setText("");
+            jLabelStockNuevProd.setText("");
+            jLabelInfoNuevProd.setText("");
+            jLabelMotivoNuevProd.setText("");
+            
+            actualizarTextArea(); 
+            
+        } else {
+            // Si SÍ existe (true), bloqueamos la carga
+            JOptionPane.showMessageDialog(this, "EL PRODUCTO YA ESTÁ REGISTRADO", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        catch (NumberFormatException e) {
-        // Si el precio, la cantidad, O el peso tienen letras, el código salta aquí.
+        
+    } catch (NumberFormatException e) {
+        // Si el precio o la cantidad tienen letras, el código salta aquí.
         JOptionPane.showMessageDialog(this, "Asegúrate de que todos los campos contengan solo números válidos.", "ERROR", JOptionPane.ERROR_MESSAGE);
-}
+    }
                 
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -1558,8 +1587,9 @@ public class JFrameSegundo extends javax.swing.JFrame {
     }
     
     private void actualizarTextArea (){
-        String textCompleto = mostrarInfoCompleta(lista);
-        textAreaLista.setText(textCompleto);
+        ProductoDAO objetoP = new ProductoDAO();
+        String textResult = objetoP.mostrarNombreProductos();
+        textAreaLista.setText(textResult);
     }
    //Metodo de la Lista Enlazada
     public Producto busqueda(ListaEnlazada Lista, String nombreProducto){

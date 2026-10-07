@@ -68,9 +68,10 @@ public class JFrame extends javax.swing.JFrame {
         jPanel1.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("USUARIO");
 
-        labelNombre.setForeground(new java.awt.Color(144, 144, 144));
+        labelNombre.setForeground(new java.awt.Color(153, 153, 153));
         labelNombre.setText("Ingresar nombre de usuario");
         labelNombre.setToolTipText("");
         labelNombre.setBorder(null);
@@ -78,6 +79,7 @@ public class JFrame extends javax.swing.JFrame {
         labelNombre.addActionListener(this::labelNombreActionPerformed);
 
         jLabel4.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("CONTRASEÑA");
 
         password.setForeground(new java.awt.Color(0, 0, 0));

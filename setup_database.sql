@@ -1,3 +1,4 @@
+/*
 USE master;
 GO
 
@@ -96,5 +97,29 @@ INSERT INTO Usuarios (Nombre,Password,Rol)
             ('Boby','200820','Control de Objetos');
 GO
 
+
+
+*/
+
+USE proyecto_empresa_db;
+GO
+
+/*
+CREATE PROCEDURE dbo.usp_MostrarProductos
+AS
+BEGIN
+    SELECT TOP 50 * FROM Productos;
+END;
+GO
+
+
+CREATE PROCEDURE dbo.usp_MostrarNombreProducto
+AS
+BEGIN
+    SELECT * FROM Productos;
+END;
+GO
+
+*/
 
 
