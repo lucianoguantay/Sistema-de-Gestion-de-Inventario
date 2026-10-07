@@ -33,37 +33,54 @@ GO
 
 -- CREACIÓN DE TABLAS (Blindadas)
 
+CREATE TABLE Marcas (
+        Id_Marca     INT             IDENTITY(1,1),
+        Nombre      VARCHAR(50)     NOT NULL,
+        
+        CONSTRAINT PK_IDMARCA_MARCA PRIMARY KEY (Id_Marca)
+)
+
+
 IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'Usuarios')
 BEGIN
     CREATE TABLE Usuarios (
-        UsuarioID       INT             IDENTITY(1,1),
+        Id_Usuario       INT             IDENTITY(1,1),
         Nombre          VARCHAR(40)     NOT NULL,
         Password        VARCHAR(40)     NOT NULL,
         Rol             VARCHAR(40)     NOT NULL,
 
-        CONSTRAINT PK_USUARIOID_USUARIOS PRIMARY KEY(UsuarioID),
+        CONSTRAINT PK_USUARIOID_USUARIOS PRIMARY KEY(Id_Usuario),
         CONSTRAINT CK_NOMBRE_USUARIOS   CHECK (Nombre<>''),
         CONSTRAINT CK_PASSWORD_USUARIOS CHECK(Password<>'')
     );
 END;
 GO
 
+
+
+
+
 IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'Productos')
 BEGIN
     CREATE TABLE Productos (
-        ProductoID          INT             IDENTITY(1,1),
+        Id_Producto         INT             IDENTITY(1,1),
+        Id_Marca            INT             NOT NULL,
+        Id_Usuario          INT             NOT NULL,
         Nombre              VARCHAR(50)     NOT NULL,
         Precio              DECIMAL(10,3)   NOT NULL,
         Stock               INT             NOT NULL,
         Informacion         VARCHAR(200)    NOT NULL,
         FechaRegistro       DATE            NOT NULL,
 
-        CONSTRAINT PK_PRODUCTOID_PRODUCTOS PRIMARY KEY (ProductoID),
+        CONSTRAINT PK_IDPRODUCTO_PRODUCTOS PRIMARY KEY (Id_Producto),
+        CONSTRAINT FK_PRODUCTOS_MARCAS     FOREIGN KEY(Id_Marca) REFERENCES Marcas(Id_Marca),
+        CONSTRAINT FK_PRODUCTOS_USUARIOS    FOREIGN KEY(Id_Usuario) REFERENCES Usuarios(Id_Usuario),
         CONSTRAINT CK_NOMBRE_PRODUCTOS      CHECK(Nombre<>''),
         CONSTRAINT CK_PRECIO_PRODUCTOS      CHECK(Precio>0)
     );
 END;
 GO
+
 
 -- PROCEDIMIENTOS ALMACENADOS (CREATE)
 
@@ -120,6 +137,51 @@ BEGIN
 END;
 GO
 
+
+
+
+CREATE PROCEDURE dbo.usp_BuscarProductoxNombre
+                @Nombre VARCHAR(50),
+                @Existe BIT OUTPUT
+AS
+BEGIN
+    IF EXISTS (SELECT Nombre FROM Productos WHERE Nombre=@Nombre)
+        SET @Existe = 1
+    ELSE
+        SET @Existe = 0
+END;
+GO
+
+
+
+
+DECLARE @Variable BIT;
+
+EXEC dbo.usp_BuscarProductoxNombre @Nombre='RE', @Existe = @Variable OUTPUT;
+SELECT (@Variable);
+GO
+
+
+CREATE PROCEDURE dbo.usp_BuscarProductoxNombre
+    @Nombre VARCHAR(50),
+    @Existe BIT OUTPUT
+AS
+BEGIN
+    --Impide que el servidor mande msj sobre filas o columnas afectadas
+    SET NOCOUNT ON; 
+
+    IF EXISTS (SELECT 1 FROM Productos WHERE Nombre=@Nombre)
+        SET @Existe = 1;
+    ELSE
+        SET @Existe = 0;
+END;
+GO
+
+
+
 */
+
+
+
 
 
